@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ULTRA SIGMA V2</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background: #0b1220;
+    color: #e2e8f0;
+    overflow-x: hidden;
+}
+
+/* PARTICLES */
+#particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+/* NAV */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(2, 6, 23, 0.7);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.nav-slider {
+    position: absolute;
+    bottom: 5px;
+    height: 35px;
+    background: #22c55e;
+    border-radius: 10px;
+    transition: all 0.5s ease;
+    z-index: -1;
+}
+
+nav a {
+    color: #e2e8f0;
+    padding: 15px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* SECTIONS */
+section {
+    min-height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 120px 20px;
+    opacity: 0;
+    transform: translateY(40px) scale(0.97);
+    pointer-events: none;
+    transition: all 0.7s ease;
+}
+
+section.active {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+    z-index: 10;
+}
+
+/* SPLIT */
+.split {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.split-text {
+    max-width: 520px;
+}
+
+.split-text h1,
+.split-text h2 {
+    color: #22c55e;
+}
+
+.split-text p,
+.split-text ul {
+    background: rgba(30, 41, 59, 0.8);
+    padding: 15px;
+    border-radius: 15px;
+}
+
+/* IMAGES */
+.split-img {
+    width: 280px;
+    border-radius: 15px;
+}
+
+/* FORM */
+form input,
+form textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 6px 0;
+    border-radius: 8px;
+    border: none;
+}
+
+form button {
+    width: 100%;
+    padding: 10px;
+    background: #22c55e;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* SUCCESS TEXT */
+#successMsg {
+    display: none;
+    margin-top: 10px;
+    color: #22c55e;
+}
+
+/* DEV */
+.dev-container {
+    display: grid;
+    gap: 10px;
+}
+
+.dev-card {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(30,41,59,0.8);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.dev-card img {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+}
+
+/* POSTER */
+.poster-container {
+    width: 320px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    animation: floatIn 1s ease forwards;
+}
+
+.poster-container img {
+    width: 100%;
+    display: block;
+}
+
+@keyframes floatIn {
+    from { opacity: 0; transform: translateY(40px) scale(0.9); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #020617;
+}
+
+/* EXTRA SMOOTHNESS */
+* {
+    scroll-behavior: smooth;
+}
+</style>
+</head>
+
+<body>
+
+<canvas id="particles"></canvas>
+
+<nav>
+    <div class="nav-slider" id="slider"></div>
+    <a data-target="about">About</a>
+    <a data-target="symptoms">Symptoms</a>
+    <a data-target="effects">Effects</a>
+    <a data-target="prevention">Prevention</a>
+    <a data-target="help">Help</a>
+    <a data-target="poster">Our Poster</a>
+    <a href="members.html">Developer</a>
+</nav>
+
+<!-- ABOUT -->
+<section id="about" class="active">
+<div class="split">
+<div class="split-text">
+<h1>Online Game Addiction</h1>
+<p>Game addiction, also known as Gaming disorder, can negatively affect a student’s academic performance. Students may lose focus on their studies, skip assignments, and get lower grades because of excessive gaming.</p>
+</div>
+<img class="split-img" src="received_1450176340229549.jpeg">
+</div>
+</section>
+
+<!-- SYMPTOMS -->
+<section id="symptoms">
+<div class="split">
+<img class="split-img" src="637136117_1981524095733852_7505947215888900134_n.jpg.jpeg">
+<div class="split-text">
+<h2>Symptoms</h2>
+<ul>
+<li> Playing video games too much, even for many hours every day</li>
+<li> Playing games all the time and not stopping even when needed</li>
+<li> Choosing games over schoolwork, sleep, and other important activities</li>
+<li> Feeling upset or irritated when not allowed to play</li>
+<li> Losing focus on studies because of constant gaming</li>
+</ul>
+</div>
+</div>
+</section>
+
+<!-- EFFECTS -->
+<section id="effects">
+<div class="split">
+<div class="split-text">
+<h2>Effects</h2>
+<ul>
+<li>Poor academic performance and low grades</li>
+<li>Lack of sleep and tiredness during school</li>
+<li>Less focus and poor concentration in class</li>
+<li>Reduced social interaction with family and friends</li>
+<li>Stress, anxiety, or mood changes</li>
+</ul>
+</div>
+<img class="split-img" src="kumag.jpg">
+</div>
+</section>
+
+<!-- PREVENTION -->
+<section id="prevention">
+<div class="split">
+<img class="split-img" src="palo.jpg">
+<div class="split-text">
+<h2>Prevention</h2>
+<ul>
+<li>Set a time limit for playing video games each day</li>
+<li>Prioritize schoolwork before playing games</li>
+<li>Take breaks and do other activities like sports or hobbies</li>
+<li>Ask help from parents or teachers to manage gaming time</li>
+<li>Follow a proper sleep schedule</li>
+</ul>
+</div>
+</div>
+</section>
+
+<!-- HELP -->
+<section id="help">
+<div class="split">
+<div class="split-text">
+<h2>Help & Contact</h2>
+<p>If you are struggling with game addiction (Gaming disorder), you can contact us for help and support in managing your time and improving your studies.</p>
+
+<form id="contactForm" action="https://formspree.io/f/xzdajbpp" method="POST">
+<input type="text" name="name" placeholder="Name" required>
+<input type="email" name="email" placeholder="Email" required>
+<textarea name="message" placeholder="Message" required></textarea>
+<button type="submit">Send</button>
+</form>
+
+<p id="successMsg">Send Successful</p>
+
+</div>
+</div>
+</section>
+
+<!-- DEVELOPER -->
+<section id="developer">
+<div class="split">
+<div class="split-text">
+<h2>Developers</h2>
+<div class="dev-container">
+<div class="dev-card"><img src="Trisha.jpg"> Trisha</div>
+<div class="dev-card"><img src="viray.jpg"> Matthew</div>
+<div class="dev-card"><img src="Tabuan.jpeg"> Jul Rex</div>
+<div class="dev-card"><img src="orlanes.jpg"> Clien</div>
+<div class="dev-card"><img src="montero.jpeg"> Joseph</div>
+<div class="dev-card"><img src="yanyan.jpg"> Yanyan</div>
+<div class="dev-card"><img src="sayao.jpg"> Dennisse</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- POSTER -->
+<section id="poster">
+<div class="split">
+<div class="split-text">
+<h2>Our Poster</h2>
+<p>Awareness campaign poster.</p>
+</div>
+
+<div class="poster-container">
+<img src="1774164890376.jpg">
+</div>
+</div>
+</section>
+
+<footer>Group 3 Online Game Addiction Project</footer>
+
+<script>
+// NAV
+const links = document.querySelectorAll("nav a");
+const sections = document.querySelectorAll("section");
+const slider = document.getElementById("slider");
+
+function moveSlider(el){
+slider.style.width = el.offsetWidth+"px";
+slider.style.left = el.offsetLeft+"px";
+}
+
+window.onload = ()=>moveSlider(links[0]);
+
+links.forEach(l=>{
+l.onclick=()=>{
+sections.forEach(s=>s.classList.remove("active"));
+document.getElementById(l.dataset.target).classList.add("active");
+moveSlider(l);
+}
+});
+
+// FORM SUCCESS
+const form = document.getElementById("contactForm");
+const successMsg = document.getElementById("successMsg");
+
+form.addEventListener("submit", async function(e) {
+    e.preventDefault();
+
+    const data = new FormData(form);
+
+    const response = await fetch(form.action, {
+        method: "POST",
+        body: data,
+        headers: { 'Accept': 'application/json' }
+    });
+
+    if (response.ok) {
+        successMsg.style.display = "block";
+        form.reset();
+    }
+});
+
+// PARTICLES
+const c=document.getElementById("particles");
+const x=c.getContext("2d");
+c.width=innerWidth;
+c.height=innerHeight;
+
+let p=[];
+class P{
+constructor(){
+this.x=Math.random()*c.width;
+this.y=Math.random()*c.height;
+this.s=Math.random()*2;
+this.vx=Math.random()*0.5-0.4;
+this.vy=Math.random()*0.5-0.4;
+}
+u(){
+this.x+=this.vx;
+this.y+=this.vy;
+if(this.x>c.width)this.x=0;
+if(this.x<0)this.x=c.width;
+if(this.y>c.height)this.y=0;
+if(this.y<0)this.y=c.height;
+}
+d(){
+x.fillStyle="rgba(34,197,94,0.6)";
+x.beginPath();
+x.arc(this.x,this.y,this.s,0,Math.PI*2);
+x.fill();
+}
+}
+
+for(let i=0;i<80;i++)p.push(new P());
+
+function a(){
+x.clearRect(0,0,c.width,c.height);
+p.forEach(e=>{e.u();e.d();});
+requestAnimationFrame(a);
+}
+a();
+
+window.onresize=()=>{
+c.width=innerWidth;
+c.height=innerHeight;
+};
+</script>
+
+</body>
+</html>
